@@ -1,0 +1,613 @@
+<!--로그인 페이지-->
+<!-- login.html-->
+<!DOCTYPE html>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>    
+</head>
+<body>
+
+<style>
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex-basis: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+</style>
+
+<script type="text/javascript">
+	function doExcelUpload(){
+		
+		$("#form1").attr("action", "http://localhost:8080/test/selctBagInfoList.do");
+		$("#form1").submit();
+	    //var f = new FormData(document.getElementById('form1'));
+	    /*$.ajax({
+	        url: "",
+	        data: f,
+	        processData: false,
+	        contentType: false,
+	        type: "POST",
+	        success: function(data){
+	            console.log(data);
+	            //document.getElementById('result').innerHTML = JSON.stringify(data);
+	        }
+	    })
+	    */
+	}
+	
+    function fnInsertUnitTemp(){
+        //var f = new FormData(document.getElementById('form2'));
+        let data = {};
+        let form = new FormData();
+        let files = $("#file2")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertUnitTemp.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }    
+    
+    function fnXbtBagConstUnitTemp(){
+        //var f = new FormData(document.getElementById('form2'));
+        let data = {};
+        let form = new FormData();
+        let files = $("#file3")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertXbtBagConstUnitTemp.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }        
+    
+  
+    function fnXbtBagInfoTemp(){
+        //var f = new FormData(document.getElementById('form2'));
+        let data = {};
+        let form = new FormData();
+        let files = $("#file4")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertXbtBagInfoTemp.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }    
+    
+    
+    //이론문제 업로드 45문제
+    function fnInsertTheoryExcel(){
+        let data = {};
+        let form = new FormData();
+        let files = $("#file9")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertTheoryExcel.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }        
+    
+    
+    
+    
+    
+	function doExcelRename(){
+		
+		$("#form8").attr("action", "http://localhost:8080/test/selctBagInfoRenameList.do");
+		$("#form8").submit();
+	}
+    
+    
+    function fnInsertUnitRename(){
+        //var f = new FormData(document.getElementById('form5'));
+        let data = {};
+        let form = new FormData();
+        let files = $("#file5")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertUnitRename.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }    
+    
+    function fnXbtBagConstUnitRename(){
+        //var f = new FormData(document.getElementById('form6'));
+        let data = {};
+        let form = new FormData();
+        let files = $("#file6")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertXbtBagConstUnitRename.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }        
+    
+  
+    function fnXbtBagInfoRename(){
+        //var f = new FormData(document.getElementById('form7'));
+        let data = {};
+        let form = new FormData();
+        let files = $("#file7")[0].files[0];
+        console.log(files);
+        form.append("excelFile", files);
+        //제이슨 + 데이터 보낼때
+        //form.append("key1", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        //form.append("key2", fileImg);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertXbtBagInfoRename.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function fnXbtBagInfoRenameTemp(){
+        //var f = new FormData(document.getElementById('form2'));
+        
+        //let data = {
+        	//"targetName" : $("#targetName1").val() 	
+        //};
+        let form = new FormData();
+        let files = $("#file5")[0].files[0];
+        console.log(files);
+        
+        //제이슨 + 데이터 보낼때
+        //form.append("params", new Blob([JSON.stringify(data)], {type: "application/json"}))
+        form.append("excelFile", files);
+        
+        $.ajax({
+            url: "http://localhost:8080/test/insertXbtBagInfoRenameTemp.do",
+            data: form,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }    
+        	
+    
+    
+    
+
+    function doExcelUpload1(){
+        var f = new FormData(document.getElementById('form1'));
+        $.ajax({
+            url: "http://localhost:8080/common/excel/excelUpload.do",
+            data: f,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function(data){
+                console.log(data);
+                //document.getElementById('result').innerHTML = JSON.stringify(data);
+            }
+        })
+    }
+    
+
+    function doExcelDownloadProcess(){
+    	
+    	const params = {
+    			fileSn : $("#fileSn").val(),
+    			atchFileId : $("#atchFileId").val()
+    	}    	
+        $.ajax({
+            url: "http://localhost:8080/file/fileDown",
+            method: 'POST',
+            data: JSON.stringify(params),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+            	
+            console.log("데이터 확인: ", data);
+            	
+              return;
+              if (data.header.success) {
+                  if(!data.body)
+                      return;
+                  var path = 'path=' + data.body;
+                  location.href = url + '/filedownload?' +  encodeURI(path , "UTF-8");
+                }
+            }
+        });
+    }
+    
+    function download(){
+    	const params = {
+    			fileSn : $("#fileSn").val(),
+    			atchFileId : $("#atchFileId").val()
+    	}
+        $.ajax({
+        	url: "http://localhost:8080/file/fileDown",
+            data: JSON.stringify(params),
+            contentType: "application/json",
+            xhrFields: {
+                responseType: "blob",
+            },            
+            type: "POST",
+            success: function(response, status, xhr) {
+                // check for a filename
+                var filename = xhr.getResponseHeader("filename");
+                var disposition = xhr.getResponseHeader('Content-Disposition');
+
+                var type = xhr.getResponseHeader('Content-Type');
+                var blob = new Blob([response], { type: type });
+
+                if (typeof window.navigator.msSaveBlob !== 'undefined') {
+                    // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
+                    window.navigator.msSaveBlob(blob, filename);
+                } else {
+                    var URL = window.URL || window.webkitURL;
+                    var downloadUrl = URL.createObjectURL(blob);
+
+                    if (filename) {
+                        // use HTML5 a[download] attribute to specify filename
+                        var a = document.createElement("a");
+                        // safari doesn't support this yet
+                        if (typeof a.download === 'undefined') {
+                            window.location = downloadUrl;
+                        } else {
+                            a.href = downloadUrl;
+                            a.download = filename;
+                            document.body.appendChild(a);
+                            a.click();
+                        }
+                    } else {
+                        window.location = downloadUrl;
+                    }
+
+                    setTimeout(function () { URL.revokeObjectURL(downloadUrl); }, 100); // cleanup
+                }            	
+            },
+            
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+                console.log('error',  XMLHttpRequest); 
+                console.log('textStatus',  textStatus); 
+                console.log('errorThrown',  errorThrown); 
+                      
+            }
+        })   
+        
+       /* .done(function (blob, status, xhr) {
+            // check for a filename
+            var fileName = "";
+            var disposition = xhr.getResponseHeader("Content-Disposition");
+
+            if (disposition && disposition.indexOf("attachment") !== -1) {
+                var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                var matches = filenameRegex.exec(disposition);
+
+                if (matches != null && matches[1]) {
+                    fileName = decodeURI(matches[1].replace(/['"]/g, ""));
+                }
+            }
+
+            // for IE
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(blob, fileName);
+            } else {
+                var URL = window.URL || window.webkitURL;
+                var downloadUrl = URL.createObjectURL(blob);
+
+                if (fileName) {
+                    var a = document.createElement("a");
+
+                    // for safari
+                    if (a.download === undefined) {
+                        window.location.href = downloadUrl;
+                    } else {
+                        a.href = downloadUrl;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                    }
+                } else {
+                    window.location.href = downloadUrl;
+                }
+            }
+        });   */     
+    }        
+    
+    //GET 방식 파일다운로드 
+    function getFileDownload(){
+		window.location ="http://61.14.208.2:8102/riskfree-backend/file/fileDown?atchFileId="+$("#atchFileId").val()+"&fileSn="+$("#fileSn").val();
+    }	  
+    
+    //POST방식 파일다운로드
+    function postFileDownload(){
+    	
+    	const params = {
+    			fileSn : $("#fileSn").val(),
+    			atchFileId : $("#atchFileId").val()
+    	}
+    	
+    	 
+        $.ajax({
+            url: "http://localhost:8080/file/fileDown",
+            method: 'POST',
+            data: $("#form2").serialize(),
+            dataType: 'json',
+            success: function(data) {
+            	console.log("데이터 확인: ", data);
+            	location.href = url + '/filedownload?' +  encodeURI(data , "UTF-8");
+            }
+        });		
+    }    
+    
+    //GET 방식 필수내역다운로드 
+    function getEssentailFileDownload(){
+		window.location ="http://localhost:8080/common/excel/getUserDutyExcel?workplaceId=5&baselineId=55";
+    }	    
+    
+    function btn_add(){
+    	var row_idx = parseInt($(".row_idx:last").text()) + 1;
+    	if(!row_idx){row_idx=1;}
+    	var str = "";
+
+    	str += "<tr>";
+    	str += "	<td style='text-align:center;' class=\"row_idx\">"+row_idx+"</td>";
+    	str += "	<td style='text-align:center;'><input size='100px' class='target1' type=\"text\" ></td>";
+    	str += "	<td style='text-align:center;'><input size='100px' class='target2' id='result"+row_idx	+"' type=\"text\" ></td>";
+    	str += "	<td style='text-align:center;'>";
+    	str += "		<div class=\"btn-group\">";
+    	str += "			<button type='button' class='btn btn-primary btn-sm' name='dtl_del'>삭제</button>";
+    	str += "		</div>";
+    	str += "	</td>";
+    	str += "</tr>";
+    	
+    	$("#tbody_id:last").append(str);
+    }
+    
+    //행삭제
+    $(document).on('click', "[name='dtl_del']", function(){
+    	var tr = $(this).parent().parent().parent();
+    	tr.remove();
+    });    
+    
+    function btn_addressChange(){
+    	
+    	$('.target1').each(function(index,item){
+    		console.log('주소:', $(this).val());
+    	});
+    	
+    	/*
+    	for(var i = 0; i < data.length; i++){
+   		  (function(i) {
+   		            $.ajax({
+   		            url: "API url",
+   		            data:ajaxData,
+   		            success:function(result){
+   		                 console.log(i);
+   		             }
+   		        });
+   		    })(i);
+   		} */   	
+   	
+    	
+    	const params = {
+    			currentPage : 1,
+    			countPerPage : 10,
+    			keyword : "전라남도 목포시 남악1로 15 110동 1002호",
+    			confmKey : "devU01TX0FVVEgyMDIzMTEwNzIzMzAyNTExNDI1MzY",
+    			resultType : "json"
+    	}    	
+   		
+        $.ajax({
+            url: "https://business.juso.go.kr/addrlink/addrEngApi.do",
+            method: 'GET',
+            data: params,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+           		console.log("데이터 확인: ", data);
+            }
+        });
+    }   
+    
+    
+    
+    function btn_addressChangeNew(){
+    	
+    	var rowText = $('#textAreaExample1').val();
+    	// 각 행을 분리하여 배열로 저장
+		var rows = rowText.split('\n');
+    	
+		// 각 행에서 열 데이터를 분리하여 2차원 배열로 저장
+		var data = rows.map(function(row) {
+		  return row.split('\t');
+		});
+
+		// 결과 확인하기
+		console.log(data);    	
+    	
+		var str1 = "https://business.juso.go.kr/addrlink/addrEngApi.do?currentPage=1&countPerPage=1&keyword=";
+		var str2 = "&confmKey=devU01TX0FVVEgyMDIzMTEwNzIzMzAyNTExNDI1MzY=&resultType=json";
+		
+		$.each(data, function(){
+			var target = str1 + $(this).val() + str2;
+			console.log(target);
+			
+		});
+		
+    	/*
+    	for(var i = 0; i < data.length; i++){
+   		  (function(i) {
+   		            $.ajax({
+   		            url: "API url",
+   		            data:ajaxData,
+   		            success:function(result){
+   		                 console.log(i);
+   		             }
+   		        });
+   		    })(i);
+   		} */   	
+    }      
+</script>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>주소 변환</h1>
+    <p>한글주소를 영문주소로 변경</p>
+    <button type="button" class="btn btn-primary" onclick='btn_addressChangeNew();'>주소 변환</button>
+    <!-- 
+	<table style="border: 1px solid; width:100%;">
+		<thead>
+			<tr>
+				<th style="width:20%; text-align:center;vertical-align:middle;">No</th>
+				<th style="width:20%; text-align:center;vertical-align:middle;">한글주소</th>
+				<th style="width:20%; text-align:center;vertical-align:middle;">영어주소</th>
+				<th style="width:20%; text-align:center;">
+					<button class='btn btn-primary btn-sm' type="button"  onclick='btn_add();'>
+						<strong>추가</strong>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody id="tbody_id">
+		</tbody>
+	</table>    
+    -->
+    
+    
+	<div class="form-row">
+	  <div class="form-group col-md-6">
+	    <label class="form-label" for="textAreaExample1">한글 주소</label>
+	    <textarea class="form-control" id="textAreaExample1" rows="50"></textarea>
+	  </div>
+	  <div class="form-group col-md-6">
+	    <label class="form-label" for="textAreaExample2">영어 주소</label>
+	    <textarea class="form-control" id="textAreaExample2" rows="50"></textarea>
+	  </div>
+	</div>
+
+
+
+</body>
+
+</html>
